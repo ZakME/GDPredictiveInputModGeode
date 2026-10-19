@@ -14,11 +14,11 @@
             "description": "Largest delay (in physics ticks, 240 per second) the mod may add to a click to keep you alive. <cy>Disabled</c> passes every input through untouched.",
             "type": "string",
             "default": "2 Ticks",
-            "one-of": ["Disabled", "1 Tick", "2 Ticks", "4 Ticks", "8 Ticks"]
+            "one-of": ["Disabled", "1 Tick", "2 Ticks", "4 Ticks", "6 Ticks", "8 Ticks", "10 Ticks", "12 Ticks", "14 Ticks", "16 Ticks"]
         },
         "cycle-mode": {
             "name": "Cycle Mode Key",
-            "description": "Cycles Disabled -> 1 -> 2 -> 4 -> 8 ticks while playing a level.",
+            "description": "Cycles Disabled -> 1 -> 2 -> 4 -> 6 -> 8 -> 10 -> 12 -> 14 -> 16 ticks while playing a level.",
             "type": "keybind",
             "default": ["F6"],
             "category": "gameplay"

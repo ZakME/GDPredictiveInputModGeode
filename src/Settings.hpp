@@ -7,10 +7,11 @@
 
 namespace pib {
     // Buffer modes, in the order the cycle key steps through them.
-    inline constexpr std::array<std::string_view, 5> kModeNames = {
-        "Disabled", "1 Tick", "2 Ticks", "4 Ticks", "8 Ticks"
+    inline constexpr std::array<std::string_view, 10> kModeNames = {
+        "Disabled", "1 Tick", "2 Ticks", "4 Ticks", "6 Ticks",
+        "8 Ticks", "10 Ticks", "12 Ticks", "14 Ticks", "16 Ticks"
     };
-    inline constexpr std::array<int, 5> kModeTicks = { 0, 1, 2, 4, 8 };
+    inline constexpr std::array<int, 10> kModeTicks = { 0, 1, 2, 4, 6, 8, 10, 12, 14, 16 };
 
     struct Settings {
         int maxDelay = 2;

@@ -20,9 +20,9 @@ Press **F6** in a level to cycle through them (you can rebind it in the mod sett
 | 1 Tick | 1 tick |
 | 2 Ticks | 2 ticks |
 | 4 Ticks | 4 ticks |
-| 8 Ticks | 8 ticks |
+| 6 - 16 Ticks | every 2 ticks from 6 up to 16 |
 
-GD runs 240 ticks a second no matter your FPS, so 4 ticks is one frame at 60fps and 8 ticks is two.
+GD runs 240 ticks a second no matter your FPS, so 4 ticks is one frame at 60fps, 8 ticks is two and 16 is four.
 
 The current mode shows up in the top left while you're playing, along with the last click it saved.
 
