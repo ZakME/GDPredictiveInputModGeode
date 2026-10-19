@@ -53,3 +53,7 @@ Needs Visual Studio Build Tools, CMake, the Geode CLI and the Geode v6 SDK. Poin
 - Stuff that moves around (move triggers and such) isn't predicted perfectly, so the odd weird call can happen there.
 - Inputs near gamemode, speed, mirror or teleport portals are never delayed.
 - This is basically an input assist, so runs with it on don't count for leaderboards or list submissions.
+
+## License
+
+GPL-3.0, see [LICENSE](LICENSE). Do whatever you want with it, just keep it open source.
