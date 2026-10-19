@@ -2,7 +2,11 @@
 
 A Geode mod for Geometry Dash 2.2091 that saves you from clicking a hair too early.
 
-Every time you click, the mod quickly plays out what would happen. If clicking right now would kill you but clicking a tick or two later wouldn't, it holds your click for those few ticks and lets it through at the right moment. If no small delay would save you, it doesn't touch anything and you just die like normal.
+**Built on experimental Geode v6 branch because current geode release doesn't support 2.2091**
+
+Every time you click, the mod quickly plays out what would happen. If clicking right now would kill you but clicking a tick or two later wouldn't, it holds your click for those few ticks and lets it through at the right moment. If no small delay would save you, it doesn't touch anything and you just die like normal (skill issue).
+
+This is basically just baby aim assist for GD. Haven't done any extensive testing. If you find something wonky with it, please create an **issue** and please attach a **clip** to your issue.
 
 ## Modes
 
