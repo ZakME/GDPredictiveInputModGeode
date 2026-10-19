@@ -1,5 +1,7 @@
 # GDPredictiveInputModGeode
 
+Will not be releasing ready-to-run build. Build instructions are below.
+
 A Geode mod for Geometry Dash 2.2091 that saves you from clicking a hair too early.
 
 **Built on experimental Geode v6 branch because current geode release doesn't support 2.2091**
