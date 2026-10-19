@@ -1,9 +1,51 @@
 # GDPredictiveInputModGeode
 
-geode mod for gd 2.2091. if clicking now would kill you but clicking a couple ticks later wouldnt, it waits those ticks for you
+A Geode mod for Geometry Dash 2.2091 that saves you from clicking a hair too early.
 
-f6 in a level cycles off / 1 / 2 / 4 / 8 ticks
+Every time you click, the mod quickly plays out what would happen. If clicking right now would kill you but clicking a tick or two later wouldn't, it holds your click for those few ticks and lets it through at the right moment. If no small delay would save you, it doesn't touch anything and you just die like normal.
 
-works on cube, robot, ball, spider, ufo and wave. leaves ship and swing alone
+## Modes
 
-needs geode v6 since thats the only one on 2.2091 rn. build with build.bat
+Press **F6** in a level to cycle through them (you can rebind it in the mod settings):
+
+| Mode | Max delay |
+|---|---|
+| Disabled | nothing, your inputs go straight through |
+| 1 Tick | 1 tick |
+| 2 Ticks | 2 ticks |
+| 4 Ticks | 4 ticks |
+| 8 Ticks | 8 ticks |
+
+GD runs 240 ticks a second no matter your FPS, so 4 ticks is one frame at 60fps and 8 ticks is two.
+
+The current mode shows up in the top left while you're playing, along with the last click it saved.
+
+## Gamemodes
+
+- **Cube, robot, ball, spider** - checks your jumps and orb clicks
+- **UFO** - checks your clicks
+- **Wave** - checks both presses and releases
+- **Ship, swing** - left alone, your inputs always go straight through
+
+## Settings
+
+- **Buffer Mode** - same as the F6 modes above
+- **Buffer Releases (Wave)** - turn this off if you only want presses touched
+- **Show Status Label** - hides the top-left text
+- **Log Saved Inputs** - prints a line to the Geode console every time a click gets saved
+- **Lookahead settings** - how far ahead it's allowed to check. The defaults are fine
+
+## Installing
+
+You need GD **2.2091** with the Geode **v6** loader, since that's the only Geode that runs on 2.2091 right now. There's no prebuilt download yet, so build it (below) and drop the `.geode` file in `Geometry Dash/geode/mods`.
+
+### Building
+
+Needs Visual Studio Build Tools, CMake, the Geode CLI and the Geode v6 SDK. Point the paths at the top of `build.bat` at your stuff and run it. It builds and installs the mod for you.
+
+## Heads up
+
+- Turn off Click Between Frames if you have it, both mess with input timing.
+- Stuff that moves around (move triggers and such) isn't predicted perfectly, so the odd weird call can happen there.
+- Inputs near gamemode, speed, mirror or teleport portals are never delayed.
+- This is basically an input assist, so runs with it on don't count for leaderboards or list submissions.
