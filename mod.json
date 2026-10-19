@@ -1,0 +1,67 @@
+{
+    "geode": "5.11.2",
+    "gd": {
+        "win": "2.2091"
+    },
+    "id": "zakme.predictive_input",
+    "name": "Predictive Input Buffer",
+    "version": "v1.0.0",
+    "developer": "ZakME",
+    "description": "Delays a click by a few physics ticks when clicking now would kill you but clicking slightly later would not.",
+    "settings": {
+        "mode": {
+            "name": "Buffer Mode",
+            "description": "Largest delay (in physics ticks, 240 per second) the mod may add to a click to keep you alive. <cy>Disabled</c> passes every input through untouched.",
+            "type": "string",
+            "default": "2 Ticks",
+            "one-of": ["Disabled", "1 Tick", "2 Ticks", "4 Ticks", "8 Ticks"]
+        },
+        "cycle-mode": {
+            "name": "Cycle Mode Key",
+            "description": "Cycles Disabled -> 1 -> 2 -> 4 -> 8 ticks while playing a level.",
+            "type": "keybind",
+            "default": ["F6"],
+            "category": "gameplay"
+        },
+        "buffer-releases": {
+            "name": "Buffer Releases (Wave)",
+            "description": "Also delay <cy>releases</c> in wave, where letting go at the wrong tick kills just like pressing does.",
+            "type": "bool",
+            "default": true
+        },
+        "show-status": {
+            "name": "Show Status Label",
+            "description": "Shows the current mode and the last saved input in the corner while playing.",
+            "type": "bool",
+            "default": true
+        },
+        "log-saves": {
+            "name": "Log Saved Inputs",
+            "description": "Writes a line to the Geode log/console each time an input is delayed.",
+            "type": "bool",
+            "default": true
+        },
+        "jump-horizon": {
+            "name": "Click-Mode Lookahead",
+            "description": "Most ticks to look ahead after a click in cube, robot, ball and spider. A prediction normally ends sooner: when you land or reach the next orb.",
+            "type": "int",
+            "default": 120,
+            "min": 16,
+            "max": 240
+        },
+        "hold-horizon": {
+            "name": "Flying-Mode Lookahead",
+            "description": "Most ticks to look ahead after an input in wave and UFO. A prediction normally ends sooner: a few ticks after your next click, timed from your own recent rhythm.",
+            "type": "int",
+            "default": 24,
+            "min": 4,
+            "max": 60
+        },
+        "self-check": {
+            "name": "Prediction Self-Check (Debug)",
+            "description": "Every 30 ticks, predicts where you'll be 30 ticks later with no input and logs how far off the prediction was. Useful for checking accuracy on a level.",
+            "type": "bool",
+            "default": false
+        }
+    }
+}
