@@ -45,7 +45,9 @@ You need GD **2.2091** with the Geode **v6** loader, since that's the only Geode
 
 ### Building
 
-Needs Visual Studio Build Tools, CMake, the Geode CLI and the Geode v6 SDK. Point the paths at the top of `build.bat` at your stuff and run it. It builds and installs the mod for you.
+Needs: MSVC (Visual Studio Build Tools with the C++ x64 tools), CMake 3.21+, Ninja, Git, Geode CLI, Geode SDK (v6 branch), Geode bindings (with 2.2091)
+
+The VS Build Tools "C++ CMake tools for Windows" component gets you CMake and Ninja. Point the paths at the top of `build.bat` at your stuff and run it. It builds and installs the mod for you.
 
 ## Heads up
 
