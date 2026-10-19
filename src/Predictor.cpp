@@ -61,6 +61,10 @@ namespace pib {
             long long lastRelease = -1;
         } g_rhythm;
 
+        // Ticks a spider keeps being checked after teleporting: enough to catch
+        // spikes or saws right at the landing spot.
+        constexpr int kSpiderSettleTicks = 10;
+
         constexpr double kRhythmWeight = 0.3;
         // Longer gaps are pauses between sections, not rhythm.
         constexpr long long kMaxRhythmGap = 120;
@@ -119,6 +123,10 @@ namespace pib {
                     req.horizon = tick + cfg.jumpHorizon;
                     req.stopOnLanding = true;
                     req.actWindow = held + 2;
+                    // A spider click lands instantly on the other side; judge
+                    // the landing spot and the next few ticks, not the next
+                    // half second.
+                    if (mode == Gamemode::Spider) req.settleAfterTeleport = kSpiderSettleTicks;
                     break;
             }
             std::stable_sort(req.inputs.begin(), req.inputs.end(),

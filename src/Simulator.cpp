@@ -161,6 +161,7 @@ namespace pib {
 
         result.outcome = SimOutcome::Survived;
         bool airborne = false;
+        int teleportTick = -1;
         size_t nextInput = 0;
         for (int tick = 0; tick < request.horizon; ++tick) {
             while (nextInput < request.inputs.size() && request.inputs[nextInput].tick <= tick) {
@@ -186,11 +187,16 @@ namespace pib {
             }
             if (tick < request.evaluatedTick) continue;
 
+            // No fall or jump moves the player this far in one tick; only a
+            // teleport does.
+            bool teleported = std::abs(simPlayer->getPositionY() - prevY) > 10.f;
+            if (teleported && teleportTick < 0) teleportTick = tick;
+
             // A jump, orb, flip, dash or spider teleport changes velocity or
             // position far more in one tick than gravity can.
             if (tick <= request.evaluatedTick + request.actWindow && (
                 std::abs(simPlayer->m_yVelocity - prevVelocity) > 2.0 ||
-                std::abs(simPlayer->getPositionY() - prevY) > 10.f ||
+                teleported ||
                 simPlayer->m_isUpsideDown != prevUpsideDown ||
                 (simPlayer->m_isDashing && !prevDashing)))
             {
@@ -205,6 +211,11 @@ namespace pib {
                     if (std::find(startingOrbs.begin(), startingOrbs.end(), ring) == startingOrbs.end()) newOrb = true;
                 }
                 if (newOrb) break;
+            }
+            if (request.settleAfterTeleport >= 0 && teleportTick >= 0 &&
+                tick >= teleportTick + request.settleAfterTeleport)
+            {
+                break;
             }
             if (request.stopOnLanding) {
                 if (!simPlayer->m_isOnGround) airborne = true;

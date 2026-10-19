@@ -43,6 +43,10 @@ namespace pib {
         // End as Survived when the player reaches an orb it wasn't touching
         // at the start: from there the outcome depends on the next click.
         bool stopOnNewOrb = true;
+        // End as Survived this many ticks after the player teleports (spider
+        // click, spider orb or pad), once the landing spot has proven safe.
+        // -1 disables.
+        int settleAfterTeleport = -1;
     };
 
     struct SimResult {
