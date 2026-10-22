@@ -14,49 +14,29 @@ This is basically just baby aim assist for GD. Haven't done any extensive testin
 
 Press **F6** in a level to cycle through them (you can rebind it in the mod settings):
 
-| Mode | Max delay |
-|---|---|
-| Disabled | nothing, your inputs go straight through |
-| 1 Tick | 1 tick |
-| 2 Ticks | 2 ticks |
-| 4 Ticks | 4 ticks |
-| 6 - 16 Ticks | every 2 ticks from 6 up to 16 |
+| Modes |
+
+Disabled, and then 1-16 ticks (2-16 increments every 2 ticks tho)
 
 GD runs 240 ticks a second no matter your FPS, so 4 ticks is one frame at 60fps, 8 ticks is two and 16 is four.
 
-The current mode shows up in the top left while you're playing, along with the last click it saved.
+Works as expected with spider, cube, ufo, basic click modes
 
-## Gamemodes
-
-- **Cube, robot, ball, spider** - checks your jumps and orb clicks
-- **UFO** - checks your clicks
-- **Wave** - checks both presses and releases
-- **Ship, swing** - left alone, your inputs always go straight through
-
-## Settings
-
-- **Buffer Mode** - same as the F6 modes above
-- **Buffer Releases (Wave)** - turn this off if you only want presses touched
-- **Show Status Label** - hides the top-left text
-- **Log Saved Inputs** - prints a line to the Geode console every time a click gets saved
-- **Lookahead settings** - how far ahead it's allowed to check. The defaults are fine
+Also checks for potentially bad releases in wave gameplay (can be disabled in settings)
 
 ## Installing
 
-You need GD **2.2091** with the Geode **v6** loader, since that's the only Geode that runs on 2.2091 right now. There's no prebuilt download yet, so build it (below) and drop the `.geode` file in `Geometry Dash/geode/mods`.
-
-### Building
-
-Needs: MSVC (Visual Studio Build Tools with the C++ x64 tools), CMake 3.21+, Ninja, Git, Geode CLI, Geode SDK (v6 branch), Geode bindings (with 2.2091)
-
-The VS Build Tools "C++ CMake tools for Windows" component gets you CMake and Ninja. Point the paths at the top of `build.bat` at your stuff and run it. It builds and installs the mod for you.
+Figure out how to compile geode v6 branch, then figure out how to compile from this repo, and you're done.
 
 ## Heads up
 
-- Turn off Click Between Frames if you have it, both mess with input timing.
-- Stuff that moves around (move triggers and such) isn't predicted perfectly, so the odd weird call can happen there.
-- Inputs near gamemode, speed, mirror or teleport portals are never delayed.
-- This is basically an input assist, so runs with it on don't count for leaderboards or list submissions.
+Turn off Click Between Frames if you have it, messes with timing.
+
+Stuff that moves around (move triggers and such) isn't predicted perfectly, so the odd weird decision can happen there.
+
+Inputs near gamemode, speed, mirror or teleport portals are never delayed.
+
+This is basically an input assist, so runs with it on don't count for leaderboards or list submissions (obviously)
 
 ## License
 
