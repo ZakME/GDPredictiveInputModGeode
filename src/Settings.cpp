@@ -19,6 +19,7 @@ namespace pib {
             g_settings.jumpHorizon = static_cast<int>(mod->getSettingValue<int64_t>("jump-horizon"));
             g_settings.holdHorizon = static_cast<int>(mod->getSettingValue<int64_t>("hold-horizon"));
             g_settings.selfCheck = mod->getSettingValue<bool>("self-check");
+            g_settings.ignoreTwoPlayer = mod->getSettingValue<bool>("ignore-two-player");
         }
     }
 

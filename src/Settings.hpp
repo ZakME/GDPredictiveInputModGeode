@@ -21,6 +21,7 @@ namespace pib {
         int jumpHorizon = 120;
         int holdHorizon = 12;
         bool selfCheck = false;
+        bool ignoreTwoPlayer = false;
     };
 
     // Current values, refreshed whenever a setting changes.

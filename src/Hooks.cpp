@@ -191,6 +191,23 @@ namespace {
         return players;
     }
 
+    // Clears the level's 2-player flag while an input is handled, so it
+    // reaches both players like in a normal dual. Restored on scope exit.
+    struct TwoPlayerOverride {
+        LevelSettingsObject* settings = nullptr;
+
+        explicit TwoPlayerOverride(GJBaseGameLayer* layer) {
+            if (!pib::settings().ignoreTwoPlayer) return;
+            auto levelSettings = layer->m_levelSettings;
+            if (!levelSettings || !levelSettings->m_twoPlayerMode) return;
+            settings = levelSettings;
+            settings->m_twoPlayerMode = false;
+        }
+        ~TwoPlayerOverride() {
+            if (settings) settings->m_twoPlayerMode = true;
+        }
+    };
+
     void finishSelfCheck(GJBaseGameLayer* layer, long long tick) {
         if (!g_check.pending || tick < g_check.dueTick) return;
         g_check.pending = false;
@@ -238,6 +255,7 @@ class $modify(PIBGameLayer, GJBaseGameLayer) {
     // Every input reaches this from processQueuedButtons, inside the tick it
     // takes effect on.
     void handleButton(bool down, int button, bool isPlayer1) {
+        TwoPlayerOverride twoPlayerOverride(this);
         auto& queue = inputQueue();
         if (button == 1 && !Simulator::get().active()) {
             g_inputThisTick = true;

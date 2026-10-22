@@ -29,6 +29,12 @@
             "type": "bool",
             "default": true
         },
+        "ignore-two-player": {
+            "name": "Ignore 2-Player Mode",
+            "description": "Plays <cy>2-Player</c> levels like normal dual: every click and jump key controls both players. Levels built around split controls can become impossible.",
+            "type": "bool",
+            "default": false
+        },
         "show-status": {
             "name": "Show Status Label",
             "description": "Shows the current mode and the last saved input in the corner while playing.",
