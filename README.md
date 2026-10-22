@@ -14,7 +14,6 @@ This is basically just baby aim assist for GD. Haven't done any extensive testin
 
 Press **F6** in a level to cycle through them (you can rebind it in the mod settings):
 
-| Modes |
 
 Disabled, and then 1-16 ticks (2-16 increments every 2 ticks tho)
 
